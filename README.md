@@ -1,1 +1,1 @@
-Hack Nerd Font 12 Normal
+Hack Nerd Font 12 Medium
