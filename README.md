@@ -1,1 +1,1 @@
-Hack Nerd Font 12 Medium
+JetBrains Mono 12 Medium
