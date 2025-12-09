@@ -32,7 +32,51 @@ require("lazy").setup({
       vim.cmd("colorscheme gruvbox")
     end,
   },
+    
+  -- dashboard
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-tree/nvim-web-devicons", "MaximilianLloyd/ascii.nvim" },
+    config = function()
+      local ascii = require("ascii.text.neovim")
+      local msharp_art = ascii.sharp   
 
+      require("dashboard").setup({
+        theme = "hyper",
+        config = {
+          header = msharp_art,      -- ASCII header here
+          shortcut = {              -- shortcuts table
+            { desc = "󰈞  Find File", group = "Label", key = "f", action = "Telescope find_files" },
+            { desc = "  Projects", group = "Label", key = "p", action = "Telescope projects" },
+            { desc = "  Quit", group = "Label", key = "q", action = "qa" },
+            { desc = "  Dotfiles", group = "Number", action = "Telescope dotfiles", key = "d" },
+          },
+          packages = {
+            enable = true,
+          },
+          project = {
+            enable = true,
+            limit = 8,
+            icon = " ",
+            label = " Recent Projects",
+            action = "Telescope find_files cwd=",
+          },
+          mru = {
+            enable = true,
+            limit = 10,
+            icon = " ",
+            label = " Recent Files",
+            cwd_only = false,
+          },
+          footer = {
+            "⚡ Neovim loaded. Have a productive day!",
+          },
+        },
+      })
+    end,
+  },
+    
   -- autopairs
   {
     "windwp/nvim-autopairs",
@@ -107,3 +151,4 @@ require("lazy").setup({
   },
 
 })
+
