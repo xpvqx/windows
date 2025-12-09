@@ -1,1 +1,1 @@
-JetBrains Mono 12 Medium
+JetBrains Mono 11 Medium
