@@ -608,11 +608,11 @@ $scriptblock = {
 }
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock $scriptblock
 
-if (Get-Command -Name "Get-Theme_Override" -ErrorAction SilentlyContinue){
-    Get-Theme_Override;
-} else {
-    oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json | Invoke-Expression
-}
+#if (Get-Command -Name "Get-Theme_Override" -ErrorAction SilentlyContinue){
+#    Get-Theme_Override;
+#} else {
+#    oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cobalt2.omp.json | Invoke-Expression
+#}
 
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     Invoke-Expression (& { (zoxide init --cmd z powershell | Out-String) })
@@ -701,3 +701,7 @@ if (Test-Path "$PSScriptRoot\CTTcustom.ps1") {
 }
 
 Write-Host "$($PSStyle.Foreground.Yellow)Use 'Show-Help' to display help$($PSStyle.Reset)"
+
+# enable starship prompt
+Invoke-Expression (&starship init powershell)
+$ENV:STARSHIP_CONFIG = "$HOME\Documents\starship\starship.toml"
