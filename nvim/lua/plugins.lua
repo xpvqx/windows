@@ -32,7 +32,7 @@ require("lazy").setup({
       vim.cmd("colorscheme gruvbox")
     end,
   },
-    
+
   -- dashboard
   {
     "nvimdev/dashboard-nvim",
@@ -76,7 +76,37 @@ require("lazy").setup({
       })
     end,
   },
-    
+
+  {
+  "williamboman/mason.nvim",
+  config = true,
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+      },
+      config = true,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    version = "v0.1.7"
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "L3MON4D3/LuaSnip",
+    }
+  },
+
   -- autopairs
   {
     "windwp/nvim-autopairs",
@@ -98,9 +128,6 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local gruvbox_theme = require("lualine.themes.gruvbox")
-      -- gruvbox_theme.normal.a = gruvbox_theme.command.a
-      -- gruvbox_theme.insert.a = gruvbox_theme.command.a
-
       require("lualine").setup({
         options = {
           theme = gruvbox_theme,
@@ -132,23 +159,17 @@ require("lazy").setup({
     config = function()
       require("nvim-tree").setup({
         open_on_tab = true,
-        view = {
-          width = 30,
-          side = "left",
-        },
-        renderer = {
-          highlight_opened_files = "name",
-        },
-        actions = {
-          open_file = {
-            window_picker = {
-              enable = false,
-            },
-          },
-        },
+        view = { width = 30, side = "left" },
+        renderer = { highlight_opened_files = "name" },
+        actions = { open_file = { window_picker = { enable = false } } },
       })
     end,
   },
 
+  -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    lazy = false,  -- load before Neorg
+  },
 })
-
