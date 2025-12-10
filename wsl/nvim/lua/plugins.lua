@@ -176,8 +176,8 @@ require("nvim-treesitter.configs").setup({
 
 -- lualine setup
 local gruvbox = require("lualine.themes.gruvbox")
--- gruvbox.normal.a = gruvbox.command.a
--- gruvbox.insert.a = gruvbox.command.a
+gruvbox.normal.a = gruvbox.command.a
+gruvbox.insert.a = gruvbox.command.a
 
 require("lualine").setup({
   options = {
