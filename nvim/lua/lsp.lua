@@ -1,6 +1,5 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
 
 mason.setup()
 
@@ -25,8 +24,9 @@ local on_attach = function(_, bufnr)
 end
 
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
-    lspconfig[server].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    })
+  vim.lsp.config(server, {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
+
 end

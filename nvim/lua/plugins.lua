@@ -88,12 +88,10 @@ require("lazy").setup({
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
       },
-      config = true,
   },
 
   {
     "neovim/nvim-lspconfig",
-    version = "v0.1.7"
   },
 
   {
@@ -166,10 +164,15 @@ require("lazy").setup({
     end,
   },
 
-  -- Treesitter
+  -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    lazy = false,  -- load before Neorg
+    event = { "BufReadPost", "BufNewFile"}
+  },
+
+  {
+  "nvim-telescope/telescope.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
   },
 })

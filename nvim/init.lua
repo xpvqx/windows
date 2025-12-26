@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load essential configurations
-require("keymaps") 
 require("options")
 require("plugins")
+require("keymaps") 
 require("lsp")
 require("cmp_config")
