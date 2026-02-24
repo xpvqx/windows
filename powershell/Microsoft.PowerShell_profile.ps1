@@ -28,11 +28,11 @@ function hv {
 }
 
 function nit {
-    Set-Location "$HOME\nextcloud\hv\Kurser"
+    Set-Location "$HOME\nextcloud\hv\nit"
 }
 
 function ntk {
-    Set-Location "$HOME\nextcloud\hv\Påbyggnadsår"
+    Set-Location "$HOME\nextcloud\hv\ntk"
 }
 
 function docs {
