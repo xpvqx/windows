@@ -24,15 +24,15 @@ Set-Alias ep Edit-Profile
 
 # navigation
 function hv {
-    Set-Location "C:\Users\karlj\Nextcloud\hv"
+    Set-Location "$HOME\nextcloud\hv"
 }
 
 function nit {
-    Set-Location "C:\Users\karlj\Nextcloud\hv\Kurser"
+    Set-Location "$HOME\nextcloud\hv\Kurser"
 }
 
 function ntk {
-    Set-Location "C:\Users\karlj\Nextcloud\hv\Påbyggnadsår"
+    Set-Location "$HOME\nextcloud\hv\Påbyggnadsår"
 }
 
 function docs {
